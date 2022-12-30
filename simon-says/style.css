@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.numbers,
+.userNumbers,
+input,
+#result,
+h2{
+    /* display: none; */
+    text-align: center;
+    line-height: 3rem;
+    font-size: 2rem;
+    margin-top: 4rem;
+}
+
+.hidden{
+    display: none;
+}
+
