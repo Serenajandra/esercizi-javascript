@@ -46,9 +46,6 @@ const images = [
 ];
 // console.log(images[0].image);
 
-
-// const title = document.getElementById("title");
-
 images.forEach(item => {
     const imageContainer = document.getElementById("imageContainer");
     imageContainer.innerHTML += 
@@ -65,8 +62,10 @@ images.forEach(item => {
     `<div class="thumb opacity">
         <img src="assets/${item.image}" alt="">
     </div>`;
-    console.log(item.image, item.text);
+    // console.log(item.image, item.text);
 });
+
+setInterval(showNext, 4000);
 
 let activeImage = 0;
 
@@ -82,6 +81,18 @@ thumb[activeThumb].classList.remove("opacity");
 
 const nextBtn = document.getElementById("next");
 nextBtn.addEventListener("click", function(){
+   showNext();
+})
+
+const prevBtn = document.getElementById("prev");
+prevBtn.addEventListener("click", function(){
+    showPrev();
+})
+
+thumb.addEventListener("click", handleClick());
+
+// FUNCTIONS
+ function showNext() {
     imgContainer[activeImage].classList.add("hidden");
     textPart[activeImage].classList.add("hidden");
     thumb[activeThumb].classList.add("opacity");
@@ -100,23 +111,31 @@ nextBtn.addEventListener("click", function(){
         textPart[activeImage].classList.remove("hidden");
         thumb[activeThumb].classList.remove("opacity");
     }
-})
+ }
 
-const prevBtn = document.getElementById("prev");
-prevBtn.addEventListener("click", function(){
+ function showPrev(){
+    
     imgContainer[activeImage].classList.add("hidden");
     textPart[activeImage].classList.add("hidden");
-    // thumb[activeThumb].classList.add("opacity");
+    thumb[activeThumb].classList.add("opacity");
    
     if (activeImage > 0) {
         activeImage--;
         activeThumb--;
         imgContainer[activeImage].classList.remove("hidden");
         textPart[activeImage].classList.remove("hidden");
+        thumb[activeThumb].classList.remove("opacity");
 
     }else{
         activeImage = images.length -1;
+        activeThumb = images.length - 1;
         imgContainer[activeImage].classList.remove("hidden");
         textPart[activeImage].classList.remove("hidden");
+        thumb[activeThumb].classList.remove("opacity");
     }
-})
+    
+ }
+
+//  function handleClick() {
+//     this.classList.remove("opacity");
+//  }

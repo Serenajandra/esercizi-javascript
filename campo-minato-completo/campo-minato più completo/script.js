@@ -45,7 +45,7 @@ function gridGenerator(cellNum) {
         square.classList.add("col");
         square.innerHTML = `${num}`;
         row.append(square);
-         const BombsArray = BombGenerator(cellNum);
+        BombGenerator(cellNum);
         // Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.Per orelevare il contenuto dello square uso la parola chiave '.textContent'.
         square.addEventListener("click", handleSquareClick);
     } 
