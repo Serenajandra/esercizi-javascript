@@ -29,7 +29,7 @@ imagesArray.forEach(image => {
     document.getElementById('imgWrapper').innerHTML += `<div class="img-cell"><img class="img" src="${image}"></div>`;
     image++;
 });
-
+console.log(document.getElementById('imgWrapper'));
 let activeImg = 0;
 let activeThumb = 0;
 console.log(activeImg);

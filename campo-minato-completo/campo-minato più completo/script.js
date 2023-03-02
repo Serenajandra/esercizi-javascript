@@ -55,11 +55,11 @@ function handleSquareClick(){
     const clickedNum = parseInt(this.textContent);
     if (bombsArray.includes(clickedNum)) {
         this.classList.add("bomb");
-         
+        endGame();
     }else{
         this.classList.add("notABomb");
         // alert("hai perso!");
-        // endGame();
+        
     }
 
     console.log(parseInt(this.textContent));

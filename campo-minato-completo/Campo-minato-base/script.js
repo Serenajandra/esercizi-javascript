@@ -40,48 +40,57 @@
 
 
 // Al click sul bottone genero la griglia
-const start = document.getElementById("startBtn");
-start.addEventListener("click", function(){
+// const start = document.getElementById("startBtn");
+// start.addEventListener("click", function(){
 
-    // 1 - L'utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata, in cui ogni cella contiene un numero tra quelli compresi in un range
-    const level = parseInt(document.getElementById("level").value);
-    console.log(level);
-    // Genero la griglia
-    gridGenerator(level);
+//     // 1 - L'utente indica un livello di difficoltà in base al quale viene generata una griglia di gioco quadrata, in cui ogni cella contiene un numero tra quelli compresi in un range
+//     const level = parseInt(document.getElementById("level").value);
+//     console.log(level);
+//     // Genero la griglia
+//     gridGenerator(level);
       
-});
+// });
 
-function gridGenerator(cellNum) {
-    const row = document.getElementById('row');
-    for (let i = 1; i <= cellNum; i++) {
-        let num = i;
-        square = document.createElement("div");
-        square.style.width = `calc(100% / 10)`;
-        square.style.height = `calc(100% / 10)`;
-        square.classList.add("col");
-        square.innerHTML = `${num}`;
-        row.append(square);
+// function gridGenerator(cellNum) {
+//     const row = document.getElementById('row');
+//     for (let i = 1; i <= cellNum; i++) {
+//         let num = i;
+//         square = document.createElement("div");
+//         square.style.width = `calc(100% / 10)`;
+//         square.style.height = `calc(100% / 10)`;
+//         square.classList.add("col");
+//         square.innerHTML = `${num}`;
+//         row.append(square);
         // Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.Per orelevare il contenuto dello square uso la parola chiave '.textContent'.
-        square.addEventListener("click", handleSquareClick);
-    } 
-}
+        // square.addEventListener("click", handleSquareClick);
+//     } 
+// }
 
-function handleSquareClick(){
-    this.classList.add("azul")
-    console.log(parseInt(this.textContent));
-};
+// function handleSquareClick(){
+//     this.classList.add("azul")
+//     console.log(parseInt(this.textContent));
+// };
 
 
 // Al click sul bottone genero la griglia
-// const start = document.getElementById("startBtn");
-// start.addEventListener("click", function(){
-    // const row = document.getElementById('row');
-    // for (let i = 1; i <=100; i++) {
-    //     let num = i;
-    //     row.innerHTML += `<div class="col"> ${num} </div>`;
-    // };
+const start = document.getElementById("startBtn");
+start.addEventListener("click", function(){
+    const row = document.getElementById('row');
+    for (let i = 1; i <=100; i++) {
+        let num = i;
+        row.innerHTML += `<div class="col"> ${num} </div>`;
+    };
    
     // square = document.querySelector(".col");
-    // square.addEventListener("click", function(){
-    //     square.classList.add("azul");
-    // })
+    let squares = document.getElementsByClassName("col");
+    console.log(squares);
+    for (let i = 0; i < squares.length; i++) {
+        const square = squares[i];
+        square.addEventListener("click", function(){
+        square.classList.add("azul");
+        }) 
+    }
+
+
+
+});
